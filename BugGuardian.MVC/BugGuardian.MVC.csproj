@@ -11,7 +11,7 @@
     <AssemblyName>DBTek.BugGuardian.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
      <IsPackable>true</IsPackable>
-    <RepositoryUrl>https://github.com/NousInfoSolutions/test2.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/PunithGH/Test.git</RepositoryUrl>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
