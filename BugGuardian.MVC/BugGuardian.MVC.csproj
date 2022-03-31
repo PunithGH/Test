@@ -11,7 +11,7 @@
     <AssemblyName>DBTek.BugGuardian.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
      <IsPackable>true</IsPackable>
-   <repository type="git" url="https:// github.com/yourgithubaccountororgname/reponame.git "></repository>
+   <repository  url="https:// github.com/yourgithubaccountororgname/reponame.git "></repository>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
