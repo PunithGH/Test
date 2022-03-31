@@ -43,6 +43,7 @@ jobs:
      # if: ${{ false }}
       run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -Username ${{ github.repository_owner }} -Password ${{ secrets.GITHUB_TOKEN }} 
     - name: Publish nuget to GitHub Packages
+      if: ${{ false }}
       run: |
            for f in ./mvc-arpitha/*.nupkg
            do
@@ -52,7 +53,7 @@ jobs:
     
     
     - name: Publish nuget 
-      if: ${{ false }}
+     # if: ${{ false }}
       run: |
       
        nuget setapikey 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 -Source "GPR" 
