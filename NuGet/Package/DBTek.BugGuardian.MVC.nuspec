@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <package>
+	<PropertyGroup>
+		<RepositoryUrl>https://github.com/PunithGH/Test.git</RepositoryUrl>
+  	</PropertyGroup>
 	<metadata>
 		<id>DBTek.BugGuardian.MVC</id>
 		<version>2.1.0</version>
