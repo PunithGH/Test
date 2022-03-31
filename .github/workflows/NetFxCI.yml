@@ -45,7 +45,7 @@ jobs:
     - name: Publish nuget to GitHub Packages
       if: ${{ false }}
       run: |
-           for f in ./mvc-arpitha/*.nupkg
+           for f in ./mvc-punith/*.nupkg
            do
              curl -vX PUT -u "NousInfoSolutions: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" -F package=@$f https://nuget.pkg.github.com/NousInfoSolutions/
            done
