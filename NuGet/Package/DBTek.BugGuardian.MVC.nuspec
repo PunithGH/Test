@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <package>
-	<PropertyGroup>
-		<RepositoryUrl>https://github.com/PunithGH/Test.git</RepositoryUrl>
-  	</PropertyGroup>
+	
 	<metadata>
 		<id>DBTek.BugGuardian.MVC</id>
 		<version>2.1.0</version>
@@ -11,6 +9,7 @@
 		<owners>Davide Benvegnu</owners>   
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<projectUrl>https://github.com/n3wt0n/BugGuardian.MVC</projectUrl>
+		<repository type="git" url="https://nuget.pkg.github.com/PunithGH"></repository>
 		<license type="expression">MIT</license>
 		<description>BugGuardian.MVC is the official Asp.net MVC extension for BugGuardian.
 		
