@@ -49,17 +49,12 @@ jobs:
            do
              curl -vX PUT -u "NousInfoSolutions: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" -F package=@$f https://nuget.pkg.github.com/NousInfoSolutions/
            done
-      shell: bash
+      shell: bash   
     
-    
-   - name: Publish nuget 
+     - name: Publish nuget 
      # if: ${{ false }}
       run: |
       
        nuget setapikey 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 -Source "GPR" 
        nuget push "DBTek.BugGuardian.MVC.2.1.0.nupkg"  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 -Source "GPR" -SkipDuplicate
-	   
-    - name: Publish Nuget to GitHub registry
-    run: dotnet nuget push ./<project>/out/*.nupkg -k ${GITHUB_TOKEN} -s https://nuget.pkg.github.com/<organization>/index.json --skip-duplicate --no-symbols 
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
