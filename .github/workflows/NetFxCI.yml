@@ -1,0 +1,60 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI mvc
+
+# Controls when the action will run. Triggers the workflow on push or pull request 
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+    
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: [windows-2019]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+      
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+    
+    - name: Restore NuGet packages
+      run: nuget restore BugGuardian.MVC.sln
+    
+    - name: Build the Solution
+      run: msbuild BugGuardian.MVC/BugGuardian.MVC.csproj 
+    - name: NuGet pack
+      #run: nuget pack 'GlobalAttachment/GlobalAttachment.csproj' --configuration debug
+      run: nuget pack  'BugGuardian.MVC/BugGuardian.MVC.csproj' -Properties Configuration=debug
+        
+        
+    - name: Add source
+     # if: ${{ false }}
+      run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -Username ${{ github.repository_owner }} -Password ${{ secrets.GITHUB_TOKEN }} 
+    - name: Publish nuget to GitHub Packages
+      run: |
+           for f in ./mvc-arpitha/*.nupkg
+           do
+             curl -vX PUT -u "NousInfoSolutions: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" -F package=@$f https://nuget.pkg.github.com/NousInfoSolutions/
+           done
+      shell: bash
+    
+    
+    - name: Publish nuget 
+      if: ${{ false }}
+      run: |
+      
+       nuget setapikey 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 -Source "GPR" 
+       nuget push "DBTek.BugGuardian.MVC.2.1.0.nupkg"  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 -Source "GPR" -SkipDuplicate
+    
